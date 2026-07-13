@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header class="page-header">
+    <h1>Admin - configurare site</h1>
+    <nav class="header-actions">
+      <a href="client.html" target="_blank">Vezi pagina client</a>
+      <button id="logoutBtn" class="small-btn">Logout</button>
+    </nav>
+  </header>
+
+  <main id="adminPanel" class="container hidden">
+    <div class="admin-layout">
+      <aside class="card sidebar">
+        <h2>Butoane meniu</h2>
+        <button id="addButtonBtn" class="primary-btn">+ Adaugă buton</button>
+        <div id="buttonList" class="button-list"></div>
+      </aside>
+
+      <div>
+        <section class="card">
+          <h2>Pagina client</h2>
+
+          <label>Titlu client</label>
+          <input id="clientTitle" placeholder="Ex: Bine ai venit!" />
+
+          <label>Text buton intrare</label>
+          <input id="clientButtonText" placeholder="Ex: Intră în meniu" />
+
+          <label>Link imagine de fundal din Supabase</label>
+          <input
+            id="backgroundUrl"
+            type="url"
+            placeholder="https://...supabase.co/storage/v1/object/public/site-images/..."
+          />
+
+          <div id="backgroundInfo"></div>
+          <p id="backgroundInfo"></p>
+
+          <button id="saveSettingsBtn" class="save-btn">Salvează setările clientului</button>
+          <p id="settingsStatus" class="status"></p>
+        </section>
+
+        <section class="card">
+          <h2>Configurare buton selectat</h2>
+          <p id="noSelectedText">Selectează sau adaugă un buton din stânga.</p>
+
+          <div id="editor" class="hidden">
+            <label>Textul butonului mare</label>
+            <input id="buttonLabel" />
+
+            <label>Link imagine din Supabase</label>
+
+            <input
+              id="imageUrlInput"
+              type="url"
+              placeholder="https://...supabase.co/storage/v1/object/public/site-images/..."
+            />
+
+            <button id="addImageUrlBtn" type="button" class="primary-btn">
+              Adaugă imaginea
+            </button>
+
+            <div id="imageList" class="image-list"></div>
+            
+
+            <label>Text afișat după poze</label>
+            <textarea id="customText" placeholder="Scrie aici orice text vrei să vadă clientul..."></textarea>
+
+            <label>Link melodie YouTube</label>
+            <input id="youtubeUrl" placeholder="https://www.youtube.com/watch?v=..." />
+
+            <button id="saveButtonContentBtn" class="save-btn">Salvează acest buton</button>
+            <p id="editorStatus" class="status"></p>
+          </div>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="config.js"></script>
+  <script src="js/admin.js"></script>
+</body>
+</html>
