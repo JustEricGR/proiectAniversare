@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="page-header">
+    <h1>Admin - configurare site</h1>
+    <nav>
+      <a href="client.html" target="_blank">Vezi pagina client</a>
+      <button id="logoutBtn" class="danger-btn" type="button">Logout</button>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section id="adminPanel" class="hidden">
+      <div class="admin-layout">
+        <aside class="card sidebar">
+          <h2>Butoane meniu</h2>
+          <button id="addButtonBtn" class="primary-btn" type="button">+ Adaugă buton</button>
+          <div id="buttonList" class="button-list"></div>
+        </aside>
+
+        <div>
+          <section class="card">
+            <h2>Pagina client</h2>
+
+            <label for="clientTitle">Titlu client</label>
+            <input id="clientTitle" type="text" placeholder="Bine ai venit!" />
+
+            <label for="clientButtonText">Text buton intrare</label>
+            <input id="clientButtonText" type="text" placeholder="Intră în meniu" />
+
+            <label for="backgroundUrl">URL public imagine de fundal</label>
+            <input
+              id="backgroundUrl"
+              type="url"
+              placeholder="https://...supabase.co/storage/v1/object/public/site-images/fundal.jpg"
+            />
+
+            <div id="backgroundInfo" class="preview-box"></div>
+
+            <label for="welcomeTopTextInput">Text prima secțiune</label>
+            <textarea id="welcomeTopTextInput" placeholder="Un mesaj frumos pentru tine."></textarea>
+
+            <label for="welcomeSecondTitleInput">Titlu secțiunea colorată</label>
+            <input
+              id="welcomeSecondTitleInput"
+              type="text"
+              placeholder="Descoperă surprizele pregătite"
+            />
+
+            <label for="welcomeBottomTextInput">Text secțiunea colorată</label>
+            <textarea
+              id="welcomeBottomTextInput"
+              placeholder="Apasă pe buton pentru a intra în meniul principal."
+            ></textarea>
+
+            <label for="welcomeBackgroundColorInput">Culoare secțiunea a doua</label>
+            <input
+              id="welcomeBackgroundColorInput"
+              type="color"
+              value="#d319b7"
+            />
+
+            <label for="contentBackgroundColorInput">Culoare pagină conținut</label>
+            <input
+              id="contentBackgroundColorInput"
+              type="color"
+              value="#d319b7"
+            />
+
+            <button id="saveSettingsBtn" class="save-btn" type="button">
+              Salvează setările clientului
+            </button>
+            <p id="settingsStatus" class="status"></p>
+          </section>
+
+          <section class="card">
+            <h2>Configurare buton selectat</h2>
+            <p id="noSelectedText">Selectează sau adaugă un buton din stânga.</p>
+
+            <div id="editor" class="hidden">
+              <label for="buttonLabel">Textul butonului mare</label>
+              <input id="buttonLabel" type="text" />
+
+              <label for="imageUrlInput">URL public imagine din Supabase Storage</label>
+              <input
+                id="imageUrlInput"
+                type="url"
+                placeholder="https://...supabase.co/storage/v1/object/public/site-images/poza.jpg"
+              />
+              <button id="addImageUrlBtn" class="primary-btn" type="button">
+                Adaugă imagine
+              </button>
+
+              <div id="imageList" class="image-list"></div>
+
+              <label for="customText">Text afișat după poze</label>
+              <textarea id="customText" placeholder="Scrie aici orice text..."></textarea>
+
+              <label for="youtubeUrl">Link melodie YouTube</label>
+              <input id="youtubeUrl" type="url" placeholder="https://www.youtube.com/watch?v=..." />
+
+              <button id="saveButtonContentBtn" class="save-btn" type="button">
+                Salvează acest buton
+              </button>
+              <p id="editorStatus" class="status"></p>
+            </div>
+          </section>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="config.js"></script>
+  <script src="admin.js"></script>
+</body>
+</html>

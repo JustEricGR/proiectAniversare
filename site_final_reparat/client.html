@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+  <title>Client</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body id="clientBody" class="client-page">
+
+  <!-- 1. PAGINA DE BUN VENIT -->
+  <section id="startScreen" class="welcome-page">
+
+    <!-- Prima secțiune: imagine fullscreen + primul text box -->
+    <section id="welcomeImageSection" class="welcome-image-section">
+      <div class="welcome-overlay"></div>
+
+      <div class="welcome-first-box">
+        <h1 id="clientTitle">Bine ai venit!</h1>
+        <p id="welcomeTopText">Un mesaj frumos pentru tine.</p>
+      </div>
+
+      <div class="scroll-indicator">
+        <span>Derulează în jos</span>
+        <strong>↓</strong>
+      </div>
+    </section>
+
+    <!-- A doua secțiune: culoare custom + al doilea text box + intră în meniu -->
+    <section id="welcomeColorSection" class="welcome-color-section">
+      <div class="welcome-second-box">
+        <h2 id="welcomeSecondTitle">Descoperă surprizele pregătite</h2>
+        <p id="welcomeBottomText">
+          Apasă pe buton pentru a intra în meniul principal.
+        </p>
+
+        <button id="enterMenuBtn" class="primary-btn enter-menu-btn" type="button">
+          Intră în meniu
+        </button>
+      </div>
+    </section>
+  </section>
+
+  <!-- 2. MENIUL PRINCIPAL: aceeași imagine de fundal -->
+  <section id="menuScreen" class="menu-page hidden">
+    <div class="menu-overlay"></div>
+
+    <div class="menu-shell">
+      <div class="card menu-card">
+        <h1>Meniu principal</h1>
+        <p>Alege una dintre opțiuni.</p>
+        <div id="menuButtons" class="menu-buttons"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. CONȚINUTUL UNUI BUTON: fundal de culoare -->
+  <section id="contentScreen" class="content-page hidden">
+    <div class="container content-container">
+      <div class="card content-view">
+        <h1 id="contentTitle"></h1>
+        <div id="imagesContainer" class="content-images"></div>
+        <div id="textContainer"></div>
+        <div id="youtubeContainer"></div>
+      </div>
+    </div>
+  </section>
+
+  <div id="backHomeBox" class="bottom-center hidden">
+    <button id="backHomeBtn" type="button">Înapoi la meniul principal</button>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="config.js"></script>
+  <script src="client.js"></script>
+</body>
+</html>

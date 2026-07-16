@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login Admin</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="center-page">
+  <main class="center-card">
+    <h1>Login Admin</h1>
+    <p>Intră cu utilizatorul creat în Supabase Authentication.</p>
+
+    <label for="email">Email</label>
+    <input id="email" type="email" placeholder="admin@exemplu.ro" />
+
+    <label for="password">Parolă</label>
+    <input id="password" type="password" placeholder="Parola ta" />
+
+    <button id="loginBtn" class="primary-btn" type="button">Intră în admin</button>
+    <p id="message" class="status"></p>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="config.js"></script>
+  <script>
+    const db = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+    document.getElementById("loginBtn").addEventListener("click", login);
+
+    async function login() {
+      const email = document.getElementById("email").value.trim();
+      const password = document.getElementById("password").value;
+      const message = document.getElementById("message");
+
+      message.textContent = "Se verifică...";
+      message.classList.remove("error");
+
+      const { error } = await db.auth.signInWithPassword({ email, password });
+
+      if (error) {
+        message.textContent = error.message;
+        message.classList.add("error");
+        return;
+      }
+
+      window.location.href = "admin.html";
+    }
+  </script>
+</body>
+</html>

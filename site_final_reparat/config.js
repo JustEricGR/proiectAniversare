@@ -1,4 +1,2 @@
-// Datele tale Supabase. Anon key este publica si se foloseste in frontend.
 const SUPABASE_URL = "https://vxkxleeyslxopsjdzzig.supabase.co";
 const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZ4a3hsZWV5c2x4b3BzamR6emlnIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODM1MjQ4NzcsImV4cCI6MjA5OTEwMDg3N30.uVsyMcpsHXf4Q_dVLCwjWxsvt_DfTFPh1kBpL5dvD-I";
-const STORAGE_BUCKET = "site-images";

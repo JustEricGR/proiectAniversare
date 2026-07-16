@@ -1,0 +1,514 @@
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: Arial, sans-serif;
+  color: #1f2937;
+  background: linear-gradient(135deg, #fff7ed, #fef3c7, #e0f2fe);
+}
+
+button, input, textarea { font: inherit; }
+
+button, .big-link {
+  border: 0;
+  border-radius: 14px;
+  padding: 13px 18px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.center-page,
+.client-bg {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.client-bg {
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+.center-card {
+  width: min(720px, 94vw);
+  padding: 34px;
+  border-radius: 28px;
+  background: rgba(255,255,255,.92);
+  box-shadow: 0 20px 60px rgba(0,0,0,.18);
+  text-align: center;
+}
+
+.client-card { margin: auto; }
+
+.home-actions {
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.big-link {
+  display: inline-block;
+  text-decoration: none;
+  color: white;
+  background: #2563eb;
+}
+
+.big-link.secondary { background: #111827; }
+
+.primary-btn { background: #2563eb; color: white; }
+.save-btn { background: #16a34a; color: white; margin-top: 16px; }
+.danger-btn { background: #dc2626; color: white; }
+.small-btn { background: #e5e7eb; padding: 8px 11px; }
+
+.page-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  padding: 18px 22px;
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: center;
+  background: rgba(255,255,255,.92);
+  box-shadow: 0 4px 20px rgba(0,0,0,.08);
+}
+
+.page-header h1 { margin: 0; font-size: 24px; }
+.page-header nav { display: flex; align-items: center; gap: 12px; }
+.page-header a { color: #2563eb; font-weight: 700; text-decoration: none; }
+
+.container { width: min(1100px, 94vw); margin: 28px auto 90px; }
+
+.card {
+  background: rgba(255,255,255,.94);
+  border-radius: 22px;
+  padding: 22px;
+  box-shadow: 0 14px 45px rgba(0,0,0,.12);
+  margin-bottom: 20px;
+}
+
+.admin-layout {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 20px;
+  align-items: start;
+}
+
+.sidebar { position: sticky; top: 90px; }
+
+label {
+  display: block;
+  margin: 14px 0 7px;
+  font-weight: 700;
+}
+
+input, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 12px;
+  background: white;
+}
+
+textarea { min-height: 120px; resize: vertical; }
+
+.button-list,
+.image-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.button-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  padding: 10px;
+  border-radius: 12px;
+  background: #f3f4f6;
+}
+
+.button-row > div { display: flex; gap: 6px; }
+
+.image-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+}
+
+.image-item {
+  padding: 8px;
+  border-radius: 14px;
+  background: #f3f4f6;
+}
+
+.image-item img,
+.preview-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 300px;
+  object-fit: contain;
+  border-radius: 10px;
+}
+
+.image-item button {
+  width: 100%;
+  margin-top: 7px;
+  background: #dc2626;
+  color: white;
+  padding: 8px;
+}
+
+.preview-box { margin-top: 12px; }
+
+.menu-buttons {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 16px;
+  margin-top: 22px;
+}
+
+.menu-button {
+  min-height: 110px;
+  color: white;
+  font-size: 22px;
+  background: linear-gradient(135deg, #2563eb, #7c3aed);
+}
+
+.content-images {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.content-images img {
+  display: block;
+  width: auto;
+  max-width: 100%;
+  max-height: 700px;
+  height: auto;
+  margin: 0 auto;
+  object-fit: contain;
+  border-radius: 18px;
+  box-shadow: 0 10px 30px rgba(0,0,0,.12);
+}
+
+.custom-text {
+  white-space: pre-wrap;
+  font-size: 19px;
+  line-height: 1.7;
+}
+
+.hidden-player {
+  position: fixed;
+  width: 1px;
+  height: 1px;
+  left: -9999px;
+  overflow: hidden;
+}
+
+.hidden-player iframe {
+  width: 200px;
+  height: 200px;
+  border: 0;
+}
+
+.music-button {
+  display: block;
+  margin: 24px auto 0;
+  padding: 13px 20px;
+  border: 0;
+  border-radius: 999px;
+  background: #111827;
+  color: white;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.music-button:disabled {
+  cursor: wait;
+  opacity: 0.6;
+}
+
+.music-status {
+  text-align: center;
+  font-size: 14px;
+  margin-top: 8px;
+}
+
+.bottom-center {
+  position: fixed;
+  bottom: 18px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 20;
+}
+
+.bottom-center button { background: #111827; color: white; }
+
+.status { margin-top: 12px; font-weight: 700; color: #2563eb; }
+.error { color: #dc2626; }
+.muted { color: #6b7280; }
+.hidden { display: none !important; }
+
+@media (max-width: 760px) {
+  .admin-layout { grid-template-columns: 1fr; }
+  .sidebar { position: static; }
+  .page-header { flex-direction: column; align-items: flex-start; }
+}
+
+
+
+/* =====================================================
+   CLIENT - UI EXACT PE CERINȚĂ
+===================================================== */
+
+body.client-page {
+  display: block;
+  padding: 0;
+  min-height: 100vh;
+  overflow-x: hidden;
+  background: #111827;
+}
+
+/* 1. Bun venit */
+.welcome-page {
+  width: 100%;
+}
+
+.welcome-image-section {
+  position: relative;
+  min-height: 100vh;
+  padding: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.welcome-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(rgba(0,0,0,.08), rgba(0,0,0,.28));
+  pointer-events: none;
+}
+
+.welcome-first-box {
+  position: relative;
+  z-index: 2;
+  width: min(760px, 94vw);
+  padding: 38px;
+  border-radius: 30px;
+  color: white;
+  text-align: center;
+  background: rgba(0,0,0,.38);
+  border: 1px solid rgba(255,255,255,.20);
+  box-shadow: 0 22px 65px rgba(0,0,0,.28);
+  backdrop-filter: blur(10px);
+}
+
+.welcome-first-box h1 {
+  margin: 0 0 14px;
+  font-size: clamp(40px, 7vw, 76px);
+}
+
+.welcome-first-box p {
+  margin: 0;
+  font-size: clamp(18px, 3vw, 25px);
+  line-height: 1.6;
+}
+
+.scroll-indicator {
+  position: absolute;
+  z-index: 2;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: white;
+  text-align: center;
+}
+
+.scroll-indicator span,
+.scroll-indicator strong {
+  display: block;
+}
+
+.scroll-indicator strong {
+  margin-top: 4px;
+  font-size: 30px;
+  animation: scrollArrow 1.4s infinite;
+}
+
+@keyframes scrollArrow {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(9px); }
+}
+
+.welcome-color-section {
+  min-height: 100vh;
+  padding: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.welcome-second-box {
+  width: min(760px, 94vw);
+  padding: 40px;
+  border-radius: 30px;
+  text-align: center;
+  background: rgba(255,255,255,.94);
+  box-shadow: 0 22px 65px rgba(0,0,0,.20);
+}
+
+.welcome-second-box h2 {
+  margin: 0 0 16px;
+  font-size: clamp(30px, 5vw, 52px);
+}
+
+.welcome-second-box p {
+  margin: 0 0 28px;
+  font-size: 20px;
+  line-height: 1.7;
+}
+
+.enter-menu-btn {
+  padding: 16px 30px;
+  font-size: 20px;
+}
+
+/* 2. Meniu principal - aceeași imagine, scroll pentru multe butoane */
+.menu-page {
+  position: relative;
+  min-height: 100vh;
+  padding: 60px 20px 110px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  overflow-y: auto;
+}
+
+.menu-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.36);
+  pointer-events: none;
+}
+
+.menu-shell {
+  position: relative;
+  z-index: 2;
+  width: min(1100px, 94vw);
+  margin: 0 auto;
+}
+
+.menu-card {
+  width: 100%;
+}
+
+.menu-buttons {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 18px;
+  margin-top: 24px;
+}
+
+.menu-button {
+  min-height: 120px;
+}
+
+/* 3. Conținut buton - fundal culoare custom */
+.content-page {
+  min-height: 100vh;
+  padding: 30px 0 110px;
+  overflow-y: auto;
+}
+
+.content-container {
+  margin-top: 0;
+}
+
+.content-view {
+  width: 100%;
+}
+
+.content-images {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.content-images img {
+  display: block;
+  width: auto;
+  max-width: 100%;
+  max-height: 760px;
+  height: auto;
+  margin: 0 auto;
+  object-fit: contain;
+  border-radius: 18px;
+  box-shadow: 0 12px 35px rgba(0,0,0,.16);
+}
+
+.client-custom-text-box {
+  margin-top: 24px;
+  padding: 24px;
+  border-radius: 20px;
+  background: rgba(255,255,255,.96);
+  box-shadow: 0 10px 30px rgba(0,0,0,.12);
+}
+
+.client-custom-text-box p {
+  margin: 0;
+  white-space: pre-wrap;
+  font-size: 19px;
+  line-height: 1.7;
+}
+
+.hidden-youtube-player {
+  position: fixed;
+  width: 1px;
+  height: 1px;
+  left: -9999px;
+  top: -9999px;
+  overflow: hidden;
+  opacity: 0;
+  pointer-events: none;
+}
+
+@media (max-width: 600px) {
+  .welcome-image-section,
+  .welcome-color-section {
+    padding: 18px;
+  }
+
+  .welcome-first-box,
+  .welcome-second-box {
+    padding: 26px 20px;
+  }
+
+  .menu-page {
+    padding: 32px 12px 110px;
+  }
+
+  .menu-buttons {
+    grid-template-columns: 1fr;
+  }
+
+  .content-page {
+    padding: 16px 0 110px;
+  }
+
+  .content-images img {
+    max-height: none;
+  }
+}
