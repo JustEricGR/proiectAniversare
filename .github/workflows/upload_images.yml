@@ -1,0 +1,41 @@
+name: Upload images to Supabase
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "pozeProiectAniversare/**"
+      - "upload_images.mjs"
+      - ".github/workflows/upload_images.yml"
+
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  upload-images:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Install Supabase JavaScript client
+        run: npm install @supabase/supabase-js
+
+      - name: Upload images to Supabase Storage
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+          SUPABASE_BUCKET: site-images
+          LOCAL_IMAGES_FOLDER: pozeProiectAniversare
+          SUPABASE_BUCKET_FOLDER: git-images
+
+        run: node upload_images.mjs
