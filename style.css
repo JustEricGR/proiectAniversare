@@ -283,47 +283,56 @@ body.client-page {
 }
 
 
-/* 1. Facem prima secțiune mai înaltă decât ecranul, ca să încapă fețele SUS și caseta JOS */
+/* 1. Secțiunea cu poză - o facem mult mai înaltă ca să fie loc suficient sub fețe */
 .welcome-image-section {
   position: relative;
-  min-height: 135vh; /* Mărit de la 100vh la 135vh - mută secțiunea roz mai jos! */
-  padding: 40px 20px 60px;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end; /* Împinge tot conținutul în partea de jos */
-  align-items: center;
-  background-size: cover;
-  background-position: center top; /* Poziționează poza astfel încât fețele din sus să rămână vizibile */
-  background-repeat: no-repeat;
+  min-height: 150vh !important; /* Înaltă, împinge secțiunea roz complet afară din ecranul initial */
+  padding: 40px 20px 90px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: flex-end !important; /* Împinge caseta jos de tot */
+  align-items: center !important;
+  background-size: cover !important;
+  background-position: center top !important; /* Fixează partea de sus a pozei unde sunt fețele */
+  background-repeat: no-repeat !important;
 }
 
-/* 2. Prima casetă de text - acum stă jos, sub fețe */
+/* 2. Prima casetă de text (cea de pe poză) - MULT MAI LATĂ și coborâtă */
 .welcome-first-box {
-  position: relative;
-  z-index: 2;
-  width: min(1100px, 94vw);
-  padding: 38px;
-  border-radius: 30px;
-  color: white;
-  text-align: center;
-  background: rgba(0,0,0,.45);
-  border: 1px solid rgba(255,255,255,.20);
-  box-shadow: 0 22px 65px rgba(0,0,0,.28);
-  backdrop-filter: blur(10px);
-
-  transform: none; /* Fără translateY forțat */
-  margin-bottom: 70px; /* Lasă loc liber dedesubt pentru textul "Derulează" */
+  position: relative !important;
+  z-index: 2 !important;
+  width: min(1300px, 96vw) !important; /* Lățime mărită substanțial */
+  padding: 40px !important;
+  border-radius: 30px !important;
+  color: white !important;
+  text-align: center !important;
+  background: rgba(0, 0, 0, 0.45) !important;
+  border: 1px solid rgba(255, 255, 255, 0.20) !important;
+  box-shadow: 0 22px 65px rgba(0, 0, 0, 0.28) !important;
+  backdrop-filter: blur(10px) !important;
+  transform: none !important; /* Fără coborâre falsă prin translateY */
+  margin-bottom: 70px !important; /* Lasă loc pentru textul "Derulează" */
 }
 
-/* 3. Textul "Derulează în jos" - stă la baza primei secțiuni, sub casetă */
+/* 3. Textul "Derulează în jos" - stă la baza imaginii */
 .scroll-indicator {
-  position: absolute;
-  z-index: 2;
-  bottom: 15px; /* Aşezat jos de tot în prima secțiune */
-  left: 50%;
-  transform: translateX(-50%);
-  color: white;
-  text-align: center;
+  position: absolute !important;
+  z-index: 2 !important;
+  bottom: 20px !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  color: white !important;
+  text-align: center !important;
+}
+
+/* 4. A doua casetă de text (cea din secțiunea roz) - MULT MAI LATĂ */
+.welcome-second-box {
+  width: min(1300px, 96vw) !important; /* Mărită la fel de lată ca prima casetă */
+  padding: 45px !important;
+  border-radius: 30px !important;
+  text-align: center !important;
+  background: rgba(255, 255, 255, 0.94) !important;
+  box-shadow: 0 22px 65px rgba(0, 0, 0, 0.20) !important;
 }
 
 .welcome-overlay {
@@ -372,14 +381,6 @@ body.client-page {
   justify-content: center;
 }
 
-.welcome-second-box {
-  width: min(760px, 94vw);
-  padding: 40px;
-  border-radius: 30px;
-  text-align: center;
-  background: rgba(255,255,255,.94);
-  box-shadow: 0 22px 65px rgba(0,0,0,.20);
-}
 
 .welcome-second-box h2 {
   margin: 0 0 16px;
