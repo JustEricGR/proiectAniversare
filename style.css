@@ -283,25 +283,36 @@ body.client-page {
 }
 
 
-/* 1. Prima secțiune (cu imaginea) - o facem suficient de înaltă */
+/* 1. Prima secțiune: o lăsăm să aibă layout normal (fără Flexbox!) */
 .welcome-image-section {
   position: relative !important;
-  min-height: 130vh !important; /* Împinge secțiunea roz mai jos */
-  padding: 20px !important;
-  display: block !important; /* Oprim Flexbox-ul care o centra vertical! */
+  min-height: 100vh !important;
+  
+  /* Anulăm flexbox-ul care o centra pe mijlocul ecranului */
+  display: block !important; 
+  
+  /* SPAȚIUL CARE ÎMPINGE CASETA SUB FEȚE:
+     80vh înseamnă că primii 80% din ecran sunt LĂSAȚI GOALI pentru fețe.
+     Dacă tot mai prinde din fețe, schimbi 80vh cu 90vh sau 100vh! */
+  padding-top: 80vh !important; 
+  padding-bottom: 120px !important;
+  padding-left: 20px !important;
+  padding-right: 20px !important;
+
   background-size: cover !important;
-  background-position: center top !important; /* Păstrează fețele sus */
+  background-position: center top !important; /* Fețele rămân vizibile SUS */
   background-repeat: no-repeat !important;
 }
 
-/* 2. Prima casetă de text - ancoarată FIX în partea de jos a secțiunii */
+/* 2. Prima casetă de text: așezată natural sub spațiul creat de padding */
 .welcome-first-box {
-  position: absolute !important;
-  bottom: 100px !important; /* O fixează la 100px de baza secțiunii (sub fețe!) */
-  left: 50% !important;
-  transform: translateX(-50%) !important; /* O centrează orizontal perfect */
+  position: relative !important;
+  z-index: 2 !important;
+  width: min(1300px, 96vw) !important;
   
-  width: min(1300px, 96vw) !important; /* Lățimea mare dorită */
+  /* Margin 0 auto o centrează pe stânga-dreapta */
+  margin: 0 auto !important; 
+  
   padding: 40px !important;
   border-radius: 30px !important;
   color: white !important;
@@ -310,24 +321,25 @@ body.client-page {
   border: 1px solid rgba(255, 255, 255, 0.20) !important;
   box-shadow: 0 22px 65px rgba(0, 0, 0, 0.28) !important;
   backdrop-filter: blur(10px) !important;
-  
-  margin: 0 !important;
+
+  /* Resetăm orice transformare veche */
+  transform: none !important; 
 }
 
-/* 3. Textul "Derulează în jos" - pus chiar sub casetă, la baza secțiunii */
+/* 3. Textul "Derulează în jos" - ancorat jos de tot, sub prima casetă */
 .scroll-indicator {
   position: absolute !important;
-  bottom: 20px !important; /* Sub casetă */
+  z-index: 2 !important;
+  bottom: 20px !important;
   left: 50% !important;
   transform: translateX(-50%) !important;
   color: white !important;
   text-align: center !important;
-  z-index: 3 !important;
 }
 
-/* 4. A doua casetă de text (cea din secțiunea roz) - MULT MAI LATĂ */
+/* 4. A doua casetă (secțiunea roz) - rămâne la fel de lată */
 .welcome-second-box {
-  width: min(1300px, 96vw) !important; /* Mărită la fel de lată ca prima casetă */
+  width: min(1300px, 96vw) !important;
   padding: 45px !important;
   border-radius: 30px !important;
   text-align: center !important;
