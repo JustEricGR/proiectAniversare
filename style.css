@@ -321,6 +321,8 @@ body.client-page {
   border: 1px solid rgba(255, 255, 255, 0.20) !important;
   box-shadow: 0 22px 65px rgba(0, 0, 0, 0.28) !important;
   backdrop-filter: blur(10px) !important;
+  margin-top: 140px;
+  padding-bottom: 500px;
 
   /* Resetăm orice transformare veche */
   transform: none !important; 
@@ -335,6 +337,7 @@ body.client-page {
   transform: translateX(-50%) !important;
   color: white !important;
   text-align: center !important;
+  margin-top: 170px;
 }
 
 /* 4. A doua casetă (secțiunea roz) - rămâne la fel de lată */
@@ -343,8 +346,9 @@ body.client-page {
   padding: 45px !important;
   border-radius: 30px !important;
   text-align: center !important;
-  background: rgba(255, 255, 255, 0.94) !important;
+  background: rgba(230, 95, 6, 0.94) !important;
   box-shadow: 0 22px 65px rgba(0, 0, 0, 0.20) !important;
+  margin-top: 200px;
 }
 
 .welcome-overlay {
@@ -542,4 +546,44 @@ body.client-page {
   text-align: center;
   color: #0f5a30;
   width: 100%;
+}
+
+
+/* =====================================================
+   FORȚARE POZIȚIONARE CASETA 1 (OVERRIDE TOTAL)
+===================================================== */
+
+/* 1. Asigurăm containerul că are înălțime suficientă */
+body.client-page .welcome-image-section {
+  position: relative !important;
+  min-height: 140vh !important; /* Înaltă, ca să încapă fețele sus și caseta jos */
+  display: block !important;
+  background-position: center top !important; /* Păstrează fețele sus */
+}
+
+/* 2. Forțăm caseta să stea Jos de tot în prima secțiune */
+body.client-page .welcome-first-box {
+  position: absolute !important;
+  
+  /* POZIȚIA EXACTĂ: O lipim de partea de jos a secțiunii */
+  top: auto !important;
+  bottom: 90px !important; /* O urcă doar 90px față de baza secțiunii (sub fețe!) */
+  left: 50% !important;
+  
+  /* Anulăm absolut orice transformare/translație venită din JS sau vechiul CSS */
+  transform: translateX(-50%) !important; 
+  
+  /* Lățime mare */
+  width: min(1300px, 96vw) !important;
+  margin: 0 !important;
+  z-index: 10 !important;
+}
+
+/* 3. Săgeata "Derulează" sub casetă */
+body.client-page .scroll-indicator {
+  position: absolute !important;
+  bottom: 20px !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  z-index: 11 !important;
 }
