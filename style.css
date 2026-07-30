@@ -408,7 +408,7 @@ body.client-page {
 .menu-shell {
   position: relative;
   z-index: 2;
-  width: min(1400px, 96vw);
+  width: min(1600px, 98vw);
   margin: 0 auto;
 }
 
