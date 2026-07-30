@@ -304,7 +304,7 @@ body.client-page {
 .welcome-first-box {
   position: relative;
   z-index: 2;
-  width: min(1000px, 94vw);
+  width: min(760px, 94vw);
   padding: 38px;
   border-radius: 30px;
   color: white;
@@ -330,7 +330,7 @@ body.client-page {
 .scroll-indicator {
   position: absolute;
   z-index: 2;
-  bottom: 24px;
+  bottom: 5px;
   left: 50%;
   transform: translateX(-50%);
   color: white;
@@ -362,7 +362,7 @@ body.client-page {
 }
 
 .welcome-second-box {
-  width: min(1000px, 94vw);
+  width: min(760px, 94vw);
   padding: 40px;
   border-radius: 30px;
   text-align: center;
@@ -408,7 +408,7 @@ body.client-page {
 .menu-shell {
   position: relative;
   z-index: 2;
-  width: min(1100px, 94vw);
+  width: min(1400px, 96vw);
   margin: 0 auto;
 }
 
