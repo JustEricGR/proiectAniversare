@@ -313,7 +313,7 @@ body.client-page {
   border: 1px solid rgba(255,255,255,.20);
   box-shadow: 0 22px 65px rgba(0,0,0,.28);
   backdrop-filter: blur(10px);
-  transform: translateY(140px);
+  transform: translateY(260px);
 }
 
 .welcome-first-box h1 {
@@ -330,7 +330,7 @@ body.client-page {
 .scroll-indicator {
   position: absolute;
   z-index: 2;
-  bottom: 5px;
+  bottom: -45px;
   left: 50%;
   transform: translateX(-50%);
   color: white;
