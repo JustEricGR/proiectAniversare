@@ -282,49 +282,44 @@ body.client-page {
   width: 100%;
 }
 
-/* 1. Secțiunea cu imagine de fundal */
+
+/* 1. Facem prima secțiune mai înaltă decât ecranul, ca să încapă fețele SUS și caseta JOS */
 .welcome-image-section {
   position: relative;
-  min-height: 100vh;
-  padding: 40px 20px 80px; /* Am adăugat spațiu în jos ca să încapă și indicatorul */
+  min-height: 135vh; /* Mărit de la 100vh la 135vh - mută secțiunea roz mai jos! */
+  padding: 40px 20px 60px;
   display: flex;
   flex-direction: column;
-  /* MODIFICARE CHEIE: Aliniem elementele în partea de JOS a secțiunii */
-  justify-content: flex-end; 
+  justify-content: flex-end; /* Împinge tot conținutul în partea de jos */
   align-items: center;
   background-size: cover;
-  background-position: center;
+  background-position: center top; /* Poziționează poza astfel încât fețele din sus să rămână vizibile */
   background-repeat: no-repeat;
 }
 
-/* 2. Prima casetă de text */
+/* 2. Prima casetă de text - acum stă jos, sub fețe */
 .welcome-first-box {
   position: relative;
   z-index: 2;
-  /* MODIFICARE: Lățime mai mare */
-  width: min(1100px, 94vw); 
+  width: min(1100px, 94vw);
   padding: 38px;
   border-radius: 30px;
   color: white;
   text-align: center;
-  background: rgba(0,0,0,.38);
+  background: rgba(0,0,0,.45);
   border: 1px solid rgba(255,255,255,.20);
   box-shadow: 0 22px 65px rgba(0,0,0,.28);
   backdrop-filter: blur(10px);
 
-  /* ELIMINĂM translateY ! */
-  transform: none; 
-
-  /* MODIFICARE: Distanță față de indicatorul de derulare */
-  margin-bottom: 50px; 
+  transform: none; /* Fără translateY forțat */
+  margin-bottom: 70px; /* Lasă loc liber dedesubt pentru textul "Derulează" */
 }
 
-/* 3. Textul "Derulează în jos" */
+/* 3. Textul "Derulează în jos" - stă la baza primei secțiuni, sub casetă */
 .scroll-indicator {
   position: absolute;
   z-index: 2;
-  /* MODIFICARE: Poziționat fix la baza primei secțiuni */
-  bottom: 15px; 
+  bottom: 15px; /* Aşezat jos de tot în prima secțiune */
   left: 50%;
   transform: translateX(-50%);
   color: white;
