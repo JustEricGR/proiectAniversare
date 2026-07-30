@@ -408,7 +408,7 @@ body.client-page {
 .menu-shell {
   position: relative;
   z-index: 2;
-  width: min(1600px, 98vw);
+  width: min(1100px, 94vw);
   margin: 0 auto;
 }
 
@@ -494,7 +494,7 @@ body.client-page {
 
   .welcome-first-box,
   .welcome-second-box {
-    padding: 26px 20px;
+    width: min(1400px, 96vw);
   }
 
   .menu-page {
