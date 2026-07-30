@@ -283,25 +283,25 @@ body.client-page {
 }
 
 
-/* 1. Secțiunea cu poză - o facem mult mai înaltă ca să fie loc suficient sub fețe */
+/* 1. Secțiunea cu poză - o extindem substanțial pe verticală */
 .welcome-image-section {
-  position: relative;
-  min-height: 150vh !important; /* Înaltă, împinge secțiunea roz complet afară din ecranul initial */
-  padding: 60px 20px 90px !important;
+  position: relative !important;
+  min-height: 180vh !important; /* Am mărit la 180vh ca să existe spațiu infinit în jos */
+  padding: 0 20px 120px !important;
   display: flex !important;
   flex-direction: column !important;
-  justify-content: flex-end !important; /* Împinge caseta jos de tot */
+  justify-content: flex-start !important; /* Aliniem de sus */
   align-items: center !important;
   background-size: cover !important;
-  background-position: center top !important; /* Fixează partea de sus a pozei unde sunt fețele */
+  background-position: center top !important; /* Fețele rămân vizibile SUS */
   background-repeat: no-repeat !important;
 }
 
-/* 2. Prima casetă de text (cea de pe poză) - MULT MAI LATĂ și coborâtă */
+/* 2. Prima casetă de text - o împingem masiv în jos folosind margin-top */
 .welcome-first-box {
   position: relative !important;
   z-index: 2 !important;
-  width: min(1300px, 96vw) !important; /* Lățime mărită substanțial */
+  width: min(1300px, 96vw) !important;
   padding: 40px !important;
   border-radius: 30px !important;
   color: white !important;
@@ -310,16 +310,19 @@ body.client-page {
   border: 1px solid rgba(255, 255, 255, 0.20) !important;
   box-shadow: 0 22px 65px rgba(0, 0, 0, 0.28) !important;
   backdrop-filter: blur(10px) !important;
-  transform: none !important; /* Fără coborâre falsă prin translateY */
-  margin-top: 70px !important;
-  margin-bottom: 70px !important; /* Lasă loc pentru textul "Derulează" */
+
+  /* DISTANȚA DE LA PARTEA DE SUS A POZEI PÂNĂ LA CASETA TA: */
+  /* Schimbă valoarea de 70vh dacă vrei să coboare ȘI mai mult (ex: 80vh sau 90vh) */
+  margin-top: 75vh !important; 
+  margin-bottom: 80px !important;
+  transform: none !important;
 }
 
-/* 3. Textul "Derulează în jos" - stă la baza imaginii */
+/* 3. Textul "Derulează în jos" */
 .scroll-indicator {
   position: absolute !important;
   z-index: 2 !important;
-  bottom: 20px !important;
+  bottom: 25px !important;
   left: 50% !important;
   transform: translateX(-50%) !important;
   color: white !important;
