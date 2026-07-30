@@ -283,27 +283,25 @@ body.client-page {
 }
 
 
-/* 1. Secțiunea cu poză - o lăsăm să se extindă natural după spațiul de sus */
+/* 1. Prima secțiune (cu imaginea) - o facem suficient de înaltă */
 .welcome-image-section {
   position: relative !important;
-  min-height: 100vh !important;
-  /* Această linie împinge TOTUL în jos. Poți mări de la 550px la 650px dacă vrei ȘI mai jos */
-  padding-top: 550px !important; 
-  padding-bottom: 100px !important;
-  padding-left: 20px !important;
-  padding-right: 20px !important;
-  display: block !important; /* Trecem pe layout normal, block */
+  min-height: 130vh !important; /* Împinge secțiunea roz mai jos */
+  padding: 20px !important;
+  display: block !important; /* Oprim Flexbox-ul care o centra vertical! */
   background-size: cover !important;
-  background-position: center top !important; /* Fețele rămân vizibile sus */
+  background-position: center top !important; /* Păstrează fețele sus */
   background-repeat: no-repeat !important;
 }
 
-/* 2. Prima casetă de text - așezată centrat, sub spațiul creat */
+/* 2. Prima casetă de text - ancoarată FIX în partea de jos a secțiunii */
 .welcome-first-box {
-  position: relative !important;
-  z-index: 2 !important;
-  width: min(1300px, 96vw) !important;
-  margin: 0 auto 60px auto !important; /* Centrată automat pe orizontală */
+  position: absolute !important;
+  bottom: 100px !important; /* O fixează la 100px de baza secțiunii (sub fețe!) */
+  left: 50% !important;
+  transform: translateX(-50%) !important; /* O centrează orizontal perfect */
+  
+  width: min(1300px, 96vw) !important; /* Lățimea mare dorită */
   padding: 40px !important;
   border-radius: 30px !important;
   color: white !important;
@@ -312,18 +310,19 @@ body.client-page {
   border: 1px solid rgba(255, 255, 255, 0.20) !important;
   box-shadow: 0 22px 65px rgba(0, 0, 0, 0.28) !important;
   backdrop-filter: blur(10px) !important;
-  transform: none !important;
+  
+  margin: 0 !important;
 }
 
-/* 3. Textul "Derulează în jos" - fixează-l la baza secțiunii */
+/* 3. Textul "Derulează în jos" - pus chiar sub casetă, la baza secțiunii */
 .scroll-indicator {
   position: absolute !important;
-  z-index: 2 !important;
-  bottom: 20px !important;
+  bottom: 20px !important; /* Sub casetă */
   left: 50% !important;
   transform: translateX(-50%) !important;
   color: white !important;
   text-align: center !important;
+  z-index: 3 !important;
 }
 
 /* 4. A doua casetă de text (cea din secțiunea roz) - MULT MAI LATĂ */
