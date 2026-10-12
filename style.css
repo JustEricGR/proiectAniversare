@@ -503,7 +503,7 @@ body.client-page {
 ===================================================== */
 
 /* 1. Fundalul paginii: Roz Magenta exact ca în poză */
-body:not(.client-page) {
+body:not(.client-page):not(.admin-page) {
   background: #c034a5 !important;
   display: flex !important;
   align-items: center !important;
@@ -513,7 +513,7 @@ body:not(.client-page) {
 }
 
 /* 2. O SINGURĂ CASETĂ: Portocaliu Terracotta */
-body:not(.client-page) .center-card {
+body:not(.client-page):not(.admin-page) .center-card {
   width: min(900px, 92vw) !important;
   padding: 60px 30px !important;
   background: #d86a37 !important;
@@ -523,7 +523,7 @@ body:not(.client-page) .center-card {
 }
 
 /* 3. Titlul din casetă */
-body:not(.client-page) h1 {
+body:not(.client-page):not(.admin-page) h1 {
   color: white !important;
   font-size: clamp(28px, 4.5vw, 44px) !important;
   margin: 0 0 40px 0 !important;
@@ -639,4 +639,137 @@ body:not(.client-page) h1 {
   color: white !important;
   font-size: 20px !important;
   line-height: 1.7 !important;
+}
+
+/* =====================================================
+   PAGINA ADMIN
+===================================================== */
+
+body.admin-page {
+  display: block;
+  background: #f6eef5;
+  color: #1f2937;
+}
+
+.admin-page .page-header {
+  background: #c034a5;
+  color: white;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.18);
+}
+
+.admin-page .page-header h1 {
+  color: white;
+  font-size: 24px;
+  margin: 0;
+}
+
+.admin-page .page-header a {
+  color: white;
+  padding: 10px 16px;
+  border: 2px solid white;
+  border-radius: 12px;
+}
+
+.admin-page .page-header a:hover {
+  background: white;
+  color: #c034a5;
+}
+
+.admin-page .container {
+  width: min(1200px, 94vw);
+}
+
+.admin-page .card {
+  background: white;
+  border: 1px solid #ecd5e8;
+  box-shadow: 0 8px 24px rgba(192, 52, 165, 0.10);
+}
+
+.admin-page .card h2 {
+  margin: 0 0 16px;
+  color: #c034a5;
+}
+
+.admin-page .admin-layout {
+  grid-template-columns: 340px minmax(0, 1fr);
+}
+
+.admin-page .sidebar {
+  top: 96px;
+  max-height: calc(100vh - 116px);
+  overflow-y: auto;
+}
+
+.admin-page .sidebar .primary-btn {
+  width: 100%;
+}
+
+.admin-page button {
+  transition: filter 0.15s ease, transform 0.15s ease;
+}
+
+.admin-page button:hover {
+  filter: brightness(1.08);
+  transform: translateY(-1px);
+}
+
+.admin-page .primary-btn { background: #c034a5; color: white; }
+.admin-page .save-btn { background: #d86a37; color: white; width: 100%; }
+.admin-page .danger-btn { background: #dc2626; color: white; }
+
+.admin-page .button-row {
+  background: #fbf3fa;
+  border: 1px solid #ecd5e8;
+}
+
+.admin-page .button-row > span {
+  flex: 1;
+  min-width: 0;
+  font-weight: 700;
+  overflow-wrap: anywhere;
+}
+
+.admin-page .button-row > div { flex-shrink: 0; }
+
+.admin-page .button-row button {
+  padding: 8px 12px;
+  font-size: 14px;
+  border-radius: 10px;
+}
+
+.admin-page .button-row .small-btn {
+  background: #ecd5e8;
+  color: #7a1f6a;
+}
+
+.admin-page input:focus,
+.admin-page textarea:focus {
+  outline: none;
+  border-color: #c034a5;
+  box-shadow: 0 0 0 3px rgba(192, 52, 165, 0.18);
+}
+
+.admin-page input[type="color"] {
+  width: 90px;
+  height: 46px;
+  padding: 4px;
+  cursor: pointer;
+}
+
+.admin-page .preview-img {
+  margin: 0 auto;
+}
+
+.admin-page .image-item {
+  background: #fbf3fa;
+  border: 1px solid #ecd5e8;
+}
+
+.admin-page .status { color: #c034a5; }
+.admin-page .status.error { color: #dc2626; }
+
+@media (max-width: 860px) {
+  .admin-page .admin-layout { grid-template-columns: 1fr; }
+  .admin-page .sidebar { position: static; max-height: none; }
+  .admin-page .page-header { flex-direction: column; align-items: flex-start; }
 }
